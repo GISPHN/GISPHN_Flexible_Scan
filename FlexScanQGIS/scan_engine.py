@@ -276,7 +276,9 @@ def scan(observed, expected, adjacency, coordinates, max_size=15, simulations=99
             raise ValueError("モンテカルロ検定には整数の症例数が必要です")
         weights = expected_array / total_expected
         cumulative = np.cumsum(weights).tolist()
-        rng = random.Random(seed)
+        # Monte Carlo draws require reproducible pseudorandom numbers, not
+        # cryptographic randomness.
+        rng = random.Random(seed)  # nosec B311
         simulation_batch = 16
         if status:
             status(f"帰無分布を生成中: {simulations:,}回、乱数種={seed}")

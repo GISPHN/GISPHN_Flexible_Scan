@@ -28,7 +28,7 @@ QGIS上でポリゴン集計データに対する柔軟な空間スキャン統�
 
 ## インストール
 
-1. [Releases / ZIP package](dist/GISPHN_Flexible_Scan_QGIS_0.1.16.zip)をダウンロードします。
+1. [Releases / ZIP package](dist/GISPHN_Flexible_Scan_QGIS_0.1.17.zip)をダウンロードします。
 2. QGISの「プラグイン」→「プラグインの管理とインストール」→「ZIPからインストール」を選びます。
 3. ZIPを指定してインストールし、「プラグイン」メニューの「G-CHAM Flexible Scan」を起動します。
 
@@ -62,11 +62,11 @@ GNU General Public License version 3 or later. 詳細は[`FlexScanQGIS/LICENSE`]
 
 APA第7版：
 
-> GISPHN. (2026). *G-CHAM Flexible Scan* (Version 0.1.16) [Computer software]. GitHub. https://github.com/GISPHN/GISPHN_Flexible_Scan
+> GISPHN. (2026). *G-CHAM Flexible Scan* (Version 0.1.17) [Computer software]. GitHub. https://github.com/GISPHN/GISPHN_Flexible_Scan
 
 Vancouver形式：
 
-> GISPHN. G-CHAM Flexible Scan [computer software]. Version 0.1.16. GitHub; 2026 [cited 2026 Nov 9]. Available from: https://github.com/GISPHN/GISPHN_Flexible_Scan
+> GISPHN. G-CHAM Flexible Scan [computer software]. Version 0.1.17. GitHub; 2026 [cited 2026 Nov 9]. Available from: https://github.com/GISPHN/GISPHN_Flexible_Scan
 
 BibTeX：
 
@@ -74,7 +74,7 @@ BibTeX：
 @software{GISPHN2026FlexibleScan,
   author  = {{GISPHN}},
   title   = {G-CHAM Flexible Scan},
-  version = {0.1.16},
+  version = {0.1.17},
   year    = {2026},
   url     = {https://github.com/GISPHN/GISPHN_Flexible_Scan},
   note    = {QGIS plugin}

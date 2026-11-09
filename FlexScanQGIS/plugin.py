@@ -4,7 +4,8 @@ import queue
 import tempfile
 import zipfile
 from datetime import datetime
-from xml.etree import ElementTree as ET
+# ElementTree is used only to construct spreadsheet XML; input XML is not parsed.
+from xml.etree import ElementTree as ET  # nosec B405
 
 from qgis.PyQt.QtCore import QTimer
 from qgis.PyQt.QtWidgets import (QComboBox, QDialog, QDialogButtonBox,
@@ -22,12 +23,8 @@ from qgis.core import (QgsProject, QgsVectorLayer, QgsFeature, QgsField, QgsTask
 from .scan_engine import expected_from_population, scan
 
 
-try:
-    BUTTON_OK = QDialogButtonBox.Ok
-    BUTTON_CANCEL = QDialogButtonBox.Cancel
-except AttributeError:  # Qt 6 scoped enum names
-    BUTTON_OK = QDialogButtonBox.StandardButton.Ok
-    BUTTON_CANCEL = QDialogButtonBox.StandardButton.Cancel
+BUTTON_OK = QDialogButtonBox.StandardButton.Ok
+BUTTON_CANCEL = QDialogButtonBox.StandardButton.Cancel
 
 try:
     # PyQt5/QGIS 3 exposes QVariant; PyQt6/QGIS 4 removed it.
@@ -44,7 +41,7 @@ class ScanTask(QgsTask):
     def __init__(self, title, obs, exp, adjacency, coordinates, max_size, sims,
                  direction, seed, nearest_neighbors, candidate_limit,
                  max_secondary_clusters, event_queue, callback):
-        super().__init__(title, QgsTask.CanCancel)
+        super().__init__(title, QgsTask.Flag.CanCancel)
         self.obs, self.exp, self.adj = obs, exp, adjacency
         self.coordinates = coordinates
         self.nearest_neighbors = nearest_neighbors
@@ -185,7 +182,9 @@ class ScanDialog(QDialog):
         form = QFormLayout()
         self.layer = QComboBox()
         for lyr in QgsProject.instance().mapLayers().values():
-            if isinstance(lyr, QgsVectorLayer) and lyr.isValid() and lyr.geometryType() == QgsWkbTypes.PolygonGeometry:
+            if (isinstance(lyr, QgsVectorLayer) and lyr.isValid() and
+                    lyr.geometryType() ==
+                    QgsWkbTypes.GeometryType.PolygonGeometry):
                 self.layer.addItem(lyr.name(), lyr.id())
         self.id_field, self.obs_field = QComboBox(), QComboBox()
         self.x_field, self.y_field = QComboBox(), QComboBox()

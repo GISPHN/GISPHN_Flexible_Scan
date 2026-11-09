@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.17
+- Uses scoped Qt and QGIS enums for QGIS 4 / Qt 6 compatibility.
+- Documents and suppresses Bandit false positives for output-only XML construction and seeded Monte Carlo pseudorandomness.
+
 ## 0.1.16
 - Adds QGIS repository metadata, including the Japanese listing description, repository URL and issue tracker.
 - Adds a PNG listing icon while retaining the SVG action icon.
