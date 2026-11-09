@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.1.18
+- Updates the plugin author display to GISPHN (Ryo Horiike).
+
 ## 0.1.17
 - Uses scoped Qt and QGIS enums for QGIS 4 / Qt 6 compatibility.
 - Documents and suppresses Bandit false positives for output-only XML construction and seeded Monte Carlo pseudorandomness.
